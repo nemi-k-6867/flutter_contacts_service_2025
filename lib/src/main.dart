@@ -169,22 +169,22 @@ class FlutterContactsService {
     if (result is int) {
       switch (result) {
         case 1:
-          throw FormOperationException(
+          throw const FormOperationException(
             errorCode: FormOperationErrorCode.FORM_OPERATION_CANCELED,
           );
         case 2:
-          throw FormOperationException(
+          throw const FormOperationException(
             errorCode: FormOperationErrorCode.FORM_COULD_NOT_BE_OPEN,
           );
         default:
-          throw FormOperationException(
+          throw const FormOperationException(
             errorCode: FormOperationErrorCode.FORM_OPERATION_UNKNOWN_ERROR,
           );
       }
     } else if (result is Map) {
       return ContactInfo.fromMap(result);
     } else {
-      throw FormOperationException(
+      throw const FormOperationException(
           errorCode: FormOperationErrorCode.FORM_OPERATION_UNKNOWN_ERROR);
     }
   }
@@ -372,9 +372,9 @@ class ContactInfo {
         prefix == other.prefix &&
         suffix == other.suffix &&
         birthday == other.birthday &&
-        DeepCollectionEquality.unordered().equals(phones, other.phones) &&
-        DeepCollectionEquality.unordered().equals(emails, other.emails) &&
-        DeepCollectionEquality.unordered()
+        const DeepCollectionEquality.unordered().equals(phones, other.phones) &&
+        const DeepCollectionEquality.unordered().equals(emails, other.emails) &&
+        const DeepCollectionEquality.unordered()
             .equals(postalAddresses, other.postalAddresses);
   }
 
@@ -467,6 +467,15 @@ class PostalAddress {
         "country": address.country
       };
 
+   Map get toMap => {
+        "label": label,
+        "street": street,
+        "city": city,
+        "postcode": postcode,
+        "region": region,
+        "country": country
+      };
+
   @override
   String toString() {
     String finalString = "";
@@ -526,6 +535,7 @@ class ValueItem {
   int get hashCode => hash2(label ?? "", value ?? "");
 
   static Map _toMap(ValueItem i) => {"label": i.label, "value": i.value};
+   Map get toMap => {"label": label, "value": value};
 }
 
 enum AndroidAccountType { facebook, google, whatsapp, other }
