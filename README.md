@@ -1,6 +1,6 @@
 # flutter_contacts_service
 
-[![StandWithPalestine](https://raw.githubusercontent.com/TheBSD/StandWithPalestine/main/badges/StandWithPalestine.svg)](https://github.com/TheBSD/StandWithPalestine/blob/main/docs/README.md) [![Pub Package](https://img.shields.io/pub/v/flutter_contacts_service.svg)](https://pub.dev/packages/flutter_contacts_service)
+ [![Pub Package](https://img.shields.io/pub/v/flutter_contacts_service.svg)](https://pub.dev/packages/flutter_contacts_service)
 
 A Flutter plugin for managing device contacts with enhanced features. This package provides a simple and efficient way to access, create, update and delete contacts on both Android and iOS platforms.
 
